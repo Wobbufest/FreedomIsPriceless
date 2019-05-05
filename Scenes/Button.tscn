@@ -1,0 +1,161 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Scripts/Button.gd" type="Script" id=1]
+[ext_resource path="res://FiP/Button/Button Plate.dae" type="PackedScene" id=2]
+[ext_resource path="res://FiP/Button/Button.dae" type="PackedScene" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Pressed"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Button:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0.25, 0 ), Vector3( 0, 0.125, 0 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "SetPressed"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "ActivateTarget"
+} ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Released"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Button:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0.125, 0 ), Vector3( 0, 0.25, 0 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "SetReleased"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "DeactivateTarget"
+} ]
+}
+
+[sub_resource type="CylinderShape" id=3]
+radius = 2.0
+height = 0.4
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 1, 0.25, 1 )
+
+[sub_resource type="CylinderShape" id=5]
+radius = 1.38
+height = 0.5
+
+[node name="Button" type="StaticBody"]
+collision_mask = 10
+script = ExtResource( 1 )
+
+[node name="Plate" parent="." instance=ExtResource( 2 )]
+
+[node name="Button" parent="." instance=ExtResource( 3 )]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Pressed = SubResource( 1 )
+anims/Released = SubResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, -0.1, 2.9 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="."]
+transform = Transform( 0.707107, -0.183013, -0.683013, 0, 0.965926, -0.258819, 0.707107, 0.183013, 0.683013, -2.05061, -0.1, 2.05061 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="."]
+transform = Transform( 0, -0.258819, -0.965926, 0, 0.965926, -0.258819, 1, 0, 0, -2.9, -0.1, 0 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape5" type="CollisionShape" parent="."]
+transform = Transform( -0.707107, -0.183013, -0.683013, 0, 0.965926, -0.258819, 0.707107, -0.183013, -0.683013, -2.05061, -0.1, -2.05061 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape6" type="CollisionShape" parent="."]
+transform = Transform( -1, 0, 0, 0, 0.965926, -0.258819, 0, -0.258819, -0.965926, 0, -0.1, -2.9 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape7" type="CollisionShape" parent="."]
+transform = Transform( -0.707107, 0.183013, 0.683013, 0, 0.965926, -0.258819, -0.707107, -0.183013, -0.683013, 2.05061, -0.1, -2.05061 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape8" type="CollisionShape" parent="."]
+transform = Transform( 0, 0.258819, 0.965926, 0, 0.965926, -0.258819, -1, 0, 0, 2.9, -0.1, 0 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape9" type="CollisionShape" parent="."]
+transform = Transform( 0.707107, 0.183013, 0.683013, 0, 0.965926, -0.258819, -0.707107, 0.183013, 0.683013, 2.05061, -0.1, 2.05061 )
+shape = SubResource( 4 )
+
+[node name="Area" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0 )
+shape = SubResource( 5 )
+

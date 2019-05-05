@@ -1,0 +1,113 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scripts/Main Menu.gd" type="Script" id=1]
+[ext_resource path="res://Hover Style Button.tres" type="StyleBox" id=2]
+[ext_resource path="res://Normal Style Button.tres" type="StyleBox" id=3]
+[ext_resource path="res://Gloria Font.tres" type="DynamicFont" id=4]
+[ext_resource path="res://GloriaHallelujah.ttf" type="DynamicFontData" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 28
+font_data = ExtResource( 5 )
+
+[node name="Main" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Main Container" type="Control" parent="."]
+margin_right = 800.0
+margin_bottom = 600.0
+
+[node name="Buttons Container" type="VBoxContainer" parent="Main Container"]
+margin_left = 20.0
+margin_top = 150.0
+margin_right = 420.0
+margin_bottom = 600.0
+size_flags_horizontal = 0
+custom_constants/separation = 25
+alignment = 1
+
+[node name="Play Button" type="Button" parent="Main Container/Buttons Container"]
+margin_top = 17.0
+margin_right = 400.0
+margin_bottom = 102.0
+focus_mode = 0
+custom_styles/hover = ExtResource( 2 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/focus = ExtResource( 3 )
+custom_styles/disabled = ExtResource( 3 )
+custom_styles/normal = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
+enabled_focus_mode = 0
+text = "Play Game"
+
+[node name="Controls Button" type="Button" parent="Main Container/Buttons Container"]
+margin_top = 127.0
+margin_right = 400.0
+margin_bottom = 212.0
+focus_mode = 0
+custom_styles/hover = ExtResource( 2 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/focus = ExtResource( 3 )
+custom_styles/disabled = ExtResource( 3 )
+custom_styles/normal = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
+enabled_focus_mode = 0
+text = "Controls"
+
+[node name="Credits Button" type="Button" parent="Main Container/Buttons Container"]
+margin_top = 237.0
+margin_right = 400.0
+margin_bottom = 322.0
+focus_mode = 0
+custom_styles/hover = ExtResource( 2 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/focus = ExtResource( 3 )
+custom_styles/disabled = ExtResource( 3 )
+custom_styles/normal = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
+enabled_focus_mode = 0
+text = "Credits"
+
+[node name="Exit Button" type="Button" parent="Main Container/Buttons Container"]
+margin_top = 347.0
+margin_right = 400.0
+margin_bottom = 432.0
+focus_mode = 0
+custom_styles/hover = ExtResource( 2 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/focus = ExtResource( 3 )
+custom_styles/disabled = ExtResource( 3 )
+custom_styles/normal = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
+enabled_focus_mode = 0
+text = "Exit Game"
+
+[node name="Title Card Container" type="VBoxContainer" parent="Main Container"]
+margin_left = 420.0
+margin_right = 800.0
+margin_bottom = 150.0
+
+[node name="Freedom Text" type="Label" parent="Main Container/Title Card Container"]
+margin_right = 380.0
+margin_bottom = 85.0
+custom_fonts/font = ExtResource( 4 )
+text = "Freedom"
+
+[node name="Is Text" type="Label" parent="Main Container/Title Card Container"]
+margin_top = 89.0
+margin_right = 380.0
+margin_bottom = 146.0
+custom_fonts/font = SubResource( 1 )
+text = "is"
+align = 1
+
+[node name="Priceless Text" type="Label" parent="Main Container/Title Card Container"]
+margin_top = 150.0
+margin_right = 380.0
+margin_bottom = 235.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0.784314, 1, 1 )
+text = "Priceless?"
+align = 2
+autowrap = true
+

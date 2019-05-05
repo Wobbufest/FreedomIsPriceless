@@ -1,0 +1,418 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Door.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Button.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Tile.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Lamp.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Quarter Tile.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=7]
+
+[sub_resource type="Environment" id=1]
+dof_blur_near_distance = 13.99
+dof_blur_near_transition = 23.15
+dof_blur_near_amount = 0.06
+glow_enabled = true
+glow_intensity = 2.0
+glow_strength = 0.5
+glow_bloom = 0.5
+glow_blend_mode = 0
+glow_hdr_threshold = 4.0
+glow_hdr_luminance_cap = 1.0
+glow_hdr_scale = 0.0
+glow_bicubic_upscale = true
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 100, 0.5, 100 )
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 2, 2, 2 )
+
+[node name="Main" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="Doors" type="Position3D" parent="."]
+editor/display_folded = true
+
+[node name="Door" parent="Doors" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 39 )
+
+[node name="Door6" parent="Doors" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, -15 )
+
+[node name="Door3" parent="Doors" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 39 )
+
+[node name="Door4" parent="Doors" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 0, 39 )
+
+[node name="Door5" parent="Doors" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 0, 63 )
+
+[node name="Door2" parent="Doors" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3 )
+
+[node name="Buttons" type="Position3D" parent="."]
+editor/display_folded = true
+
+[node name="Button" parent="Buttons" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 18 )
+Target = NodePath("../../Doors/Door")
+
+[node name="Button5" parent="Buttons" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0.25, 9 )
+Target = NodePath("../../Doors/Door6")
+
+[node name="Button2" parent="Buttons" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0.25, 36 )
+Target = NodePath("../../Doors/Door3")
+
+[node name="Button3" parent="Buttons" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 0.25, 36 )
+Target = NodePath("../../Doors/Door5")
+
+[node name="Button4" parent="Buttons" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 0.25, 42 )
+Target = NodePath("../../Doors/Door4")
+
+[node name="Scenery" type="Position3D" parent="."]
+editor/display_folded = true
+
+[node name="Tile" parent="Scenery" instance=ExtResource( 4 )]
+
+[node name="Tile2" parent="Scenery" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.068, 6.069 )
+
+[node name="Tile3" parent="Scenery" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12 )
+
+[node name="Tile4" parent="Scenery" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 18 )
+
+[node name="Tile5" parent="Scenery" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 24 )
+
+[node name="Tile7" parent="Scenery" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 18 )
+
+[node name="Tile14" parent="Scenery" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 18 )
+
+[node name="Tile16" parent="Scenery" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 18 )
+
+[node name="Tile17" parent="Scenery" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 18 )
+
+[node name="Tile31" parent="Scenery" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 18 )
+
+[node name="Tile32" parent="Scenery" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 18 )
+
+[node name="Tile37" parent="Scenery" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, 12 )
+
+[node name="Tile38" parent="Scenery" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, 6 )
+
+[node name="Tile39" parent="Scenery" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, 0 )
+
+[node name="Tile40" parent="Scenery" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, -6 )
+
+[node name="Tile41" parent="Scenery" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, -12 )
+
+[node name="Tile42" parent="Scenery" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, -18 )
+
+[node name="Tile33" parent="Scenery" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, 18 )
+
+[node name="Tile34" parent="Scenery" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0, 18 )
+
+[node name="Tile36" parent="Scenery" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, 18 )
+
+[node name="Tile35" parent="Scenery" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, 9 )
+
+[node name="Tile25" parent="Scenery" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 18 )
+
+[node name="Tile26" parent="Scenery" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, 18 )
+
+[node name="Tile8" parent="Scenery" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -24, 0, 17.937 )
+
+[node name="Tile9" parent="Scenery" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -24, 0, 23.937 )
+
+[node name="Tile10" parent="Scenery" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -24, 0, 29.937 )
+
+[node name="Tile11" parent="Scenery" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -24, 0, 35.937 )
+
+[node name="Tile12" parent="Scenery" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -24, 0, 41.937 )
+
+[node name="Tile18" parent="Scenery" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -36, 0, 17.937 )
+
+[node name="Tile20" parent="Scenery" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -36, 0, 23.937 )
+
+[node name="Tile21" parent="Scenery" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -36, 0, 29.937 )
+
+[node name="Tile22" parent="Scenery" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -36, 0, 35.937 )
+
+[node name="Tile23" parent="Scenery" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -36, 0, 41.937 )
+
+[node name="Tile27" parent="Scenery" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -36, 0, 47.937 )
+
+[node name="Tile28" parent="Scenery" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -36, 0, 53.937 )
+
+[node name="Tile29" parent="Scenery" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -36, 0, 59.937 )
+
+[node name="Tile30" parent="Scenery" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -36, 0, 65.937 )
+
+[node name="Tile24" parent="Scenery" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -30, 0, 41.937 )
+
+[node name="Tile19" parent="Scenery" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -30, 0, 17.937 )
+
+[node name="Tile6" parent="Scenery" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 30 )
+
+[node name="Tile13" parent="Scenery" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 36 )
+
+[node name="Tile15" parent="Scenery" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 42 )
+
+[node name="Lamp3" parent="Scenery" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -3 )
+
+[node name="Lamp5" parent="Scenery" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 15 )
+
+[node name="Lamp27" parent="Scenery" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 33, 0, 15 )
+
+[node name="Lamp9" parent="Scenery" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 21 )
+
+[node name="Lamp26" parent="Scenery" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 33, 0, 21 )
+
+[node name="Lamp12" parent="Scenery" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 0, 21 )
+
+[node name="Lamp13" parent="Scenery" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 0, 39 )
+
+[node name="Lamp16" parent="Scenery" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -39, 0, 39 )
+
+[node name="Lamp19" parent="Scenery" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -39, 0, 51 )
+
+[node name="Lamp22" parent="Scenery" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -39, 0, 63 )
+
+[node name="Lamp17" parent="Scenery" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -39, 0, 21 )
+
+[node name="Lamp7" parent="Scenery" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 39 )
+
+[node name="Lamp23" parent="Scenery" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 33, 0, -15 )
+
+[node name="Lamp4" parent="Scenery" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -3 )
+
+[node name="Lamp6" parent="Scenery" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 15 )
+
+[node name="Lamp28" parent="Scenery" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 39, 0, 15 )
+
+[node name="Lamp10" parent="Scenery" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 21 )
+
+[node name="Lamp25" parent="Scenery" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 39, 0, 21 )
+
+[node name="Lamp11" parent="Scenery" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 0, 21 )
+
+[node name="Lamp14" parent="Scenery" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 0, 39 )
+
+[node name="Lamp15" parent="Scenery" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -33, 0, 39 )
+
+[node name="Lamp20" parent="Scenery" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -33, 0, 51 )
+
+[node name="Lamp21" parent="Scenery" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -33, 0, 63 )
+
+[node name="Lamp18" parent="Scenery" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -33, 0, 21 )
+
+[node name="Lamp8" parent="Scenery" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 39 )
+
+[node name="Lamp24" parent="Scenery" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 39, 0, -15 )
+
+[node name="Quarter Tile3" parent="Scenery" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 46.5, 0, 22.5 )
+
+[node name="Quarter Tile4" parent="Scenery" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 46.5, 0, 25.5 )
+
+[node name="Quarter Tile5" parent="Scenery" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 46.5, 0, 28.5 )
+
+[node name="Quarter Tile24" parent="Scenery" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 46.5, 0, 31.5 )
+
+[node name="Quarter Tile26" parent="Scenery" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 46.5, 0, 34.5 )
+
+[node name="Quarter Tile6" parent="Scenery" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 46.5, 0, 37.5 )
+
+[node name="Quarter Tile7" parent="Scenery" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 43.5, 0, 37.5 )
+
+[node name="Quarter Tile8" parent="Scenery" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40.5, 0, 37.5 )
+
+[node name="Quarter Tile27" parent="Scenery" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 34.5, 0, 37.5 )
+
+[node name="Quarter Tile9" parent="Scenery" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 37.5, 0, 37.5 )
+
+[node name="Quarter Tile28" parent="Scenery" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.5, 0, 37.5 )
+
+[node name="Quarter Tile10" parent="Scenery" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5, 0, 37.5 )
+
+[node name="Quarter Tile11" parent="Scenery" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5, 0, 28.5 )
+
+[node name="Quarter Tile20" parent="Scenery" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5, 0, 31.5 )
+
+[node name="Quarter Tile25" parent="Scenery" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5, 0, 34.5 )
+
+[node name="Quarter Tile12" parent="Scenery" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5, 0, 25.5 )
+
+[node name="Quarter Tile13" parent="Scenery" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5, 0, 22.5 )
+
+[node name="Quarter Tile15" parent="Scenery" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 52.5, 0, 16.5 )
+
+[node name="Quarter Tile16" parent="Scenery" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 55.5, 0, 16.5 )
+
+[node name="Quarter Tile17" parent="Scenery" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 58.5, 0, 16.5 )
+
+[node name="Quarter Tile18" parent="Scenery" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 58.5, 0, 13.5 )
+
+[node name="Quarter Tile21" parent="Scenery" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 58.5, 0, 10.5 )
+
+[node name="Quarter Tile22" parent="Scenery" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 55.5, 0, 10.5 )
+
+[node name="Quarter Tile23" parent="Scenery" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 52.5, 0, 10.5 )
+
+[node name="Player" parent="." instance=ExtResource( 7 )]
+editor/display_folded = true
+transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, 0, 1.54638, 6 )
+
+[node name="CameraPivot" type="Position3D" parent="Player"]
+transform = Transform( 1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 0, 0 )
+
+[node name="Camera" type="Camera" parent="Player/CameraPivot"]
+transform = Transform( 1, -7.41861e-009, -5.19457e-009, 9.02199e-009, 0.866025, 0.5, 7.89322e-010, -0.5, 0.866025, 0, 6.45362, 13 )
+environment = SubResource( 1 )
+projection = 1
+current = true
+size = 10.0
+near = 0.01
+far = 24.0
+
+[node name="Game Over Collision" type="Area" parent="."]
+editor/display_folded = true
+
+[node name="CollisionShape" type="CollisionShape" parent="Game Over Collision"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 18 )
+shape = SubResource( 2 )
+
+[node name="End B Collision" type="Area" parent="."]
+editor/display_folded = true
+
+[node name="CollisionShape" type="CollisionShape" parent="End B Collision"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 2, 66 )
+shape = SubResource( 3 )
+
+[node name="OmniLight" type="OmniLight" parent="End B Collision"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 2, 66 )
+light_color = Color( 0, 0.0627451, 1, 1 )
+light_energy = 10.0
+
+[node name="End A Collision" type="Area" parent="."]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, -24 )
+
+[node name="CollisionShape" type="CollisionShape" parent="End A Collision"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 2, 66 )
+shape = SubResource( 3 )
+
+[node name="OmniLight" type="OmniLight" parent="End A Collision"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 2, 66 )
+light_color = Color( 1, 0, 0, 1 )
+light_energy = 10.0
+
+[node name="End C Collision" type="Area" parent="."]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 72, 0, -84 )
+
+[node name="CollisionShape" type="CollisionShape" parent="End C Collision"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 2, 66 )
+shape = SubResource( 3 )
+
+[node name="OmniLight" type="OmniLight" parent="End C Collision"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 2, 66 )
+light_color = Color( 0, 1, 0.0627451, 1 )
+light_energy = 10.0
+
+
+[editable path="Player"]
